@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+
+
+
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Классификация утверждений о величине W</title>
+<style>
+  body { font-family: sans-serif; margin: 20px; background: #fafafa; color: #222; }
+  h1 { margin-top: 0; }
+  .filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 15px; padding: 12px; background: #fff; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+  .filters label { display: flex; flex-direction: column; font-size: 0.85em; }
+  .filters select, .filters input[type=text] { padding: 4px 6px; margin-top: 3px; min-width: 150px; }
+  .filters input[type=text] { min-width: 240px; }
+  button { padding: 6px 14px; margin-top: 16px; cursor: pointer; }
+  .count { margin-bottom: 10px; font-style: italic; color: #555; }
+  table { border-collapse: collapse; width: 100%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+  th, td { padding: 8px 10px; border: 1px solid #ddd; text-align: left; vertical-align: top; font-size: 0.9em; }
+  th { background: #f0f0f0; cursor: pointer; user-select: none; position: sticky; top: 0; }
+  th:hover { background: #e0e0e0; }
+  tr:nth-child(even) td { background: #fdfdfd; }
+  .status-def { color: #555; }
+  .status-proven { color: #1a7f37; font-weight: bold; }
+  .status-emp { color: #0969da; }
+  .status-hyp { color: #bf8700; }
+  .status-open { color: #cf222e; }
+  .status-refuted { color: #82071e; font-weight: bold; text-decoration: line-through; }
+</style>
+</head>
+<body>
+<h1>Классификация утверждений о величине W</h1>
+<p>W(A) = (S(A)² + Q(A)) / 2. Клик по заголовку столбца — сортировка.</p>
+
+<div class="filters">
+  <label>Объект
+    <select id="filter-object"><option value="">— все —</option></select>
+  </label>
+  <label>Отношение
+    <select id="filter-relation"><option value="">— все —</option></select>
+  </label>
+  <label>Характеристика
+    <select id="filter-characteristic"><option value="">— все —</option></select>
+  </label>
+  <label>Метод
+    <select id="filter-method"><option value="">— все —</option></select>
+  </label>
+  <label>Статус
+    <select id="filter-status"><option value="">— все —</option></select>
+  </label>
+  <label>Поиск по тексту
+    <input type="text" id="filter-text" placeholder="например: тип I">
+  </label>
+  <button onclick="resetFilters()">Сбросить</button>
+</div>
+
+<div class="count" id="count"></div>
+
+<table id="table">
+  <thead>
+    <tr>
+      <th onclick="sortBy('id')">№</th>
+      <th onclick="sortBy('object')">Объект</th>
+      <th onclick="sortBy('relation')">Отношение</th>
+      <th onclick="sortBy('characteristic')">Характеристика</th>
+      <th onclick="sortBy('method')">Метод</th>
+      <th onclick="sortBy('status')">Статус</th>
+      <th onclick="sortBy('text')">Утверждение</th>
+    </tr>
+  </thead>
+  <tbody id="tbody"></tbody>
+</table>
+
+<script>
+
+
+// Я всё здесь правлю ручками.
+
+const data = [
+  {id:1, object:"мультимножества", relation:"определение W", characteristic:"базовое", method:"определение", status:"определение", text:"W(A) = (S(A)² + Q(A)) / 2, где S — сумма цифр, Q — сумма квадратов цифр"},
+  {id:2, object:"мультимножества", relation:"целочисленность W", characteristic:"базовое", method:"чётность", status:"доказано", text:"W(A) всегда целое: S² + Q ≡ 0 (mod 2)"},
+  {id:3, object:"двузначные числа", relation:"согласованность", characteristic:"базовое", method:"раскрытие скобок", status:"доказано", text:"Для A = 10x + y выполняется W(A) = x² + xy + y²"},
+  {id:4, object:"мультимножества", relation:"комбинаторная интерпретация", characteristic:"базовое", method:"раскрытие S²", status:"доказано", text:"W(A) = Σ dᵢ·dⱼ по всем 1 ≤ i ≤ j ≤ n — сумма попарных произведений цифр с повторениями"},
+  {id:5, object:"мультимножества", relation:"симметрические многочлены", characteristic:"связь с известным объектом", method:"формулы Ньютона", status:"доказано", text:"W = h₂, полный однородный симметрический многочлен степени 2: h₂ = (p₁² + p₂) / 2"},
+  {id:6, object:"мультимножества", relation:"инвариантность W", characteristic:"базовое", method:"симметрия", status:"доказано", text:"Если B — перестановка цифр A, то W(B) = W(A)"},
+  {id:7, object:"мультимножества", relation:"минимальное значение", characteristic:"крайнее значение", method:"неравенства", status:"доказано", text:"W(A) = 1 тогда и только тогда, когда A = 10ⁿ⁻¹ (степень десяти)"},
+  {id:8, object:"мультимножества", relation:"связь с PTE", characteristic:"связь с известной задачей", method:"определение", status:"доказано", text:"Равенства S(A)=S(B) и Q(A)=Q(B) — это PTE степени 2 для цифровых наборов"},
+  {id:9, object:"двузначные числа", relation:"равенство W", characteristic:"инъективность", method:"полный перебор", status:"доказано", text:"W(A) = W(B) влечёт A ~ B, кроме двух исключений (всего 52 различных значения W)"},
+  {id:10, object:"двузначные числа", relation:"исключение 1", characteristic:"единственное совпадение", method:"полный перебор", status:"доказано", text:"{35, 53} и {70} дают одно W = 49"},
+  {id:11, object:"двузначные числа", relation:"исключение 2", characteristic:"единственное совпадение", method:"полный перебор", status:"доказано", text:"{19, 91} и {56, 65} дают одно W = 91"},
+  {id:12, object:"мультимножества", relation:"коллизия", characteristic:"определение", method:"определение", status:"определение", text:"Коллизия — пара различных A, B с W(A) = W(B)"},
+  {id:13, object:"мультимножества", relation:"тип I", characteristic:"определение", method:"определение", status:"определение", text:"Коллизия типа I: S(A) = S(B) и Q(A) = Q(B)"},
+  {id:14, object:"мультимножества", relation:"тип II", characteristic:"определение", method:"определение", status:"определение", text:"Коллизия типа II: S(A) ≠ S(B)"},
+  {id:15, object:"мультимножества", relation:"примитивность", characteristic:"определение", method:"определение", status:"определение", text:"Коллизия примитивна, если ни A, ни B не содержат нулей"},
+  {id:16, object:"мультимножества", relation:"непримитивность", characteristic:"определение", method:"определение", status:"определение", text:"Коллизия непримитивна, если хотя бы один набор содержит ноль"},
+  {id:17, object:"мультимножества", relation:"нули не меняют W", characteristic:"свойство", method:"элементарно", status:"доказано", text:"Добавление нуля к набору не меняет S, Q и W"},
+  {id:18, object:"значения W", relation:"чистый I", characteristic:"определение", method:"определение", status:"определение", text:"Значение W — чистый I, если все коллизии для него имеют тип I"},
+  {id:19, object:"значения W", relation:"чистый II", characteristic:"определение", method:"определение", status:"определение", text:"Значение W — чистый II, если все коллизии для него имеют тип II и каждая пара (S, Q) даёт ровно одно мультимножество"},
+  {id:20, object:"значения W", relation:"смешанный", characteristic:"определение", method:"определение", status:"определение", text:"Значение W — смешанное, если у него есть коллизии и типа I, и типа II, или в одной паре (S, Q) сидит несколько мультимножеств при наличии пары другого типа"},
+  {id:21, object:"значения W", relation:"доля коллизионных W", characteristic:"доля", method:"полный перебор", status:"гипотеза", text:"Доля значений W, имеющих хотя бы одну коллизию, растёт и стремится к 1 при n → ∞ (эмпирически: 95,7% при n = 16)"},
+  {id:22, object:"значения W", relation:"чистый II стабилизируется", characteristic:"число значений", method:"динамическое программирование", status:"эмпирически подтверждено", text:"Число значений W с чистым типом II колеблется в коридоре 13…18 при n от 6 до 20 и не растёт (n ≤ 20)"},
+  {id:23, object:"значения W", relation:"максимальная коллизия", characteristic:"число классов", method:"полный перебор", status:"гипотеза", text:"Наибольшее число классов в одной коллизии растёт быстрее полинома, но медленнее чистой экспоненты (эмпирически: 3, 4, 7, 13, 20, 35, …, 853 при n = 3…16)"},
+  {id:24, object:"значения W", relation:"перевес типа I", characteristic:"отношение пар", method:"полный перебор", status:"эмпирически подтверждено", text:"Отношение числа пар типа I к типу II растёт с замедлением: 0,76 при n = 3; 8,39 при n = 16"},
+  {id:25, object:"значения W", relation:"рост чистого I", characteristic:"закон роста", method:"динамическое программирование", status:"эмпирически подтверждено", text:"Число значений W с чистым типом I растёт примерно как n² (по данным n = 3…20)"},
+  {id:26, object:"значения W", relation:"рост смешанного", characteristic:"закон роста", method:"динамическое программирование", status:"эмпирически подтверждено", text:"Число смешанных W растёт быстрее числа чистого I (по данным n = 3…20)"},
+  {id:27, object:"примитивные пары", relation:"бесконечность", characteristic:"мощность", method:"перебор по S", status:"эмпирически подтверждено", text:"Примитивных пар типа II бесконечно много: при S ≤ 500 найдено 724 293 пары, число растёт как S²"},
+  {id:28, object:"примитивные пары", relation:"конечность семейств", characteristic:"структура", method:"анализ", status:"открыто", text:"Гипотеза: все примитивные пары типа II распадаются на конечное число бесконечных семейств. Прямого доказательства нет"},
+  
+
+  {id:30, object:"примитивные пары", relation:"семейство «все девятки»", characteristic:"периодичность", method:"конструкция", status:"эмпирически подтверждено", text:"Семейство {9,…,9} против {9,…,9, хвост} продолжается при всех k от 2 до 20. Хвост B периодичен по k с периодом 4: при k≡2 (mod 4) — «6,2,2»; при k≡3 — «4,2,2»; при k≡0 — «8,4,2»; при k≡1 — «7,3,2,2»; далее единицы"},
+  {id:31, object:"значения W", relation:"крупные чистые II", characteristic:"зависимость от n", method:"динамическое программирование", status:"эмпирически подтверждено", text:"При n = 20 в чистый II входят крупные W (9012, 9570, 9712) с S ≈ 130. При n = 16 их не было. Число чистых II при этом не растёт — крупные W замещают мелкие"},
+  {id:32, object:"значения W", relation:"стабилизация чистого II", characteristic:"уточнение границ", method:"динамическое программирование", status:"эмпирически подтверждено", text:"Число значений W с чистым типом II держится в коридоре 13…18 при всех n от 6 до 30. Коридор устойчив, но состав W внутри него зависит от n"},
+  {id:33, object:"значения W", relation:"формулировка гипотезы о ядре", characteristic:"переформулировка", method:"анализ данных", status:"открыто", text:"Число чистых II ограничено сверху константой при всех n, но само множество чистых II зависит от n: при больших n в него входят крупные W, соответствующие длинным наборам. Требуется описание этой зависимости"},
+
+
+ 
+  {id:35, object:"примитивные пары", relation:"четырёхпериодическое семейство девяток", characteristic:"бесконечное семейство", method:"конструкция + алгебра", status:"доказано", text:"Для любого k ≥ 2 наборы Aₖ = {9×k} и Bₖ = {9×x} ∪ Tₖ ∪ {1×y} дают W(Aₖ) = W(Bₖ) при S(Aₖ) ≠ S(Bₖ). Tₖ и коэффициенты x, y зависят от k mod 4: при k≡0 — T={8,4,2}, x=3m−1, y=9m−4; при k≡1 — T={7,3,2,2}, x=3m, y=9m−4; при k≡2 — T={6,2,2}, x=3m+1, y=9m; при k≡3 — T={4,2,2}, x=3m+2, y=9m+2, где k=4m+r. Семейство бесконечно, все наборы примитивны"},
+
+
+  {id:36, object:"примитивные пары", relation:"крупные чистые II при n = 20", characteristic:"структура", method:"динамическое программирование", status:"эмпирически подтверждено", text:"Для W = 9012, 9570, 9712 при n = 20 каждая коллизия имеет вид: A = почти все девятки с крошечным хвостом из {1,2,7,8}, B = только из {6,7}. Пример W = 9012: A = 13×9 + {8,2,1,1,1}, S_A = 130, Q_A = 1124; B = 11×7 + 9×6, S_B = 131, Q_B = 863. В каждой паре S_B − S_A = 1"},
+  {id:37, object:"примитивные пары", relation:"разность сумм при крупных чистых II", characteristic:"линейное условие", method:"алгебра", status:"доказано", text:"Если S_B − S_A = 1, то W(A) = W(B) равносильно Q_A − Q_B = 2·S_A + 1. Это следует из S_B² − S_A² = 2·S_A + 1. Все три крупные пары при n = 20 удовлетворяют этому уравнению"},
+  {id:38, object:"примитивные пары", relation:"второе бесконечное семейство", characteristic:"конструкция", method:"гипотеза", status:"открыто", text:"Гипотеза: существует бесконечное семейство пар (A, B) с S_B = S_A + 1, где A — почти все девятки с малым хвостом, B — только из {6, 7}. Требуется явная параметризация по n и доказательство существования при всех достаточно больших n"},
+
+
+  {id:39, object:"значения W", relation:"время жизни крупных W в чистом II", characteristic:"динамика по n", method:"динамическое программирование", status:"эмпирически подтверждено", text:"Крупные W (например 9712) входят в чистый II при n = 20, но при n = 24 выпадают в смешанный: пара (S=136, Q=928) при n=24 даёт 4574 представления вместо одного. Крупные W живут в чистом II лишь конечный диапазон n"},
+
+
+
+  {id:40, object:"примитивные пары", relation:"структура крупных чистых II", characteristic:"параметризация", method:"алгебра", status:"доказано", text:"Для крупных чистых II набор B всегда имеет вид {7×p, 6×(n−p)}: ровно p семёрок и n−p шестёрок. Тогда S_B = 6n + p, Q_B = 36n + 13p"},
+  {id:41, object:"примитивные пары", relation:"явная формула W для крупных пар", characteristic:"параметризация", method:"алгебра", status:"доказано", text:"Если B = {7×p, 6×(n−p)}, а A имеет S_A = 6n + p − 1 и Q_A = 48n + 15p − 1, то W(A) = W(B) = ((6n + p)² + 36n + 13p) / 2. Проверено для всех восьми крупных пар из прогонов при n = 20, 24, 30"}
+
+
+
+];
+
+function uniqueValues(arr, field) {
+  const set = new Set();
+  for (const item of arr) if (item[field]) set.add(item[field]);
+  return [...set].sort((a, b) => a.localeCompare(b, "ru"));
+}
+
+function fillSelect(id, values) {
+  const sel = document.getElementById(id);
+  for (const v of values) {
+    const opt = document.createElement("option");
+    opt.value = v;
+    opt.textContent = v;
+    sel.appendChild(opt);
+  }
+}
+
+fillSelect("filter-object", uniqueValues(data, "object"));
+fillSelect("filter-relation", uniqueValues(data, "relation"));
+fillSelect("filter-characteristic", uniqueValues(data, "characteristic"));
+fillSelect("filter-method", uniqueValues(data, "method"));
+fillSelect("filter-status", uniqueValues(data, "status"));
+
+function statusClass(s) {
+  if (!s) return "";
+  if (s.indexOf("определение") >= 0) return "status-def";
+  if (s.indexOf("доказано") >= 0) return "status-proven";
+  if (s.indexOf("эмпирически") >= 0) return "status-emp";
+  if (s.indexOf("гипотеза") >= 0) return "status-hyp";
+  if (s.indexOf("открыто") >= 0) return "status-open";
+  if (s.indexOf("опровергнуто") >= 0) return "status-refuted";
+  return "";
+}
+
+function applyFilters() {
+  const fObj = document.getElementById("filter-object").value;
+  const fRel = document.getElementById("filter-relation").value;
+  const fChar = document.getElementById("filter-characteristic").value;
+  const fMeth = document.getElementById("filter-method").value;
+  const fStat = document.getElementById("filter-status").value;
+  const fText = document.getElementById("filter-text").value.toLowerCase();
+
+  const filtered = data.filter(function(item) {
+    if (fObj && item.object !== fObj) return false;
+    if (fRel && item.relation !== fRel) return false;
+    if (fChar && item.characteristic !== fChar) return false;
+    if (fMeth && item.method !== fMeth) return false;
+    if (fStat && item.status !== fStat) return false;
+    if (fText && item.text.toLowerCase().indexOf(fText) < 0) return false;
+    return true;
+  });
+
+  renderRows(filtered);
+  document.getElementById("count").textContent =
+    "Найдено: " + filtered.length + " из " + data.length;
+}
+
+function renderRows(rows) {
+  const tbody = document.getElementById("tbody");
+  tbody.innerHTML = "";
+  for (const r of rows) {
+    const tr = document.createElement("tr");
+    tr.innerHTML =
+      "<td>" + r.id + "</td>" +
+      "<td>" + r.object + "</td>" +
+      "<td>" + r.relation + "</td>" +
+      "<td>" + r.characteristic + "</td>" +
+      "<td>" + r.method + "</td>" +
+      "<td class='" + statusClass(r.status) + "'>" + r.status + "</td>" +
+      "<td>" + r.text + "</td>";
+    tbody.appendChild(tr);
+  }
+}
+
+const sortDirection = {};
+function sortBy(field) {
+  sortDirection[field] = !sortDirection[field];
+  const dir = sortDirection[field] ? 1 : -1;
+  data.sort(function(a, b) {
+    const av = a[field] || "";
+    const bv = b[field] || "";
+    if (typeof av === "number" && typeof bv === "number") return dir * (av - bv);
+    return dir * String(av).localeCompare(String(bv), "ru");
+  });
+  applyFilters();
+}
+
+function resetFilters() {
+  document.getElementById("filter-object").value = "";
+  document.getElementById("filter-relation").value = "";
+  document.getElementById("filter-characteristic").value = "";
+  document.getElementById("filter-method").value = "";
+  document.getElementById("filter-status").value = "";
+  document.getElementById("filter-text").value = "";
+  applyFilters();
+}
+
+const selectIds = ["filter-object", "filter-relation", "filter-characteristic", "filter-method", "filter-status"];
+for (const id of selectIds) {
+  document.getElementById(id).addEventListener("change", applyFilters);
+}
+document.getElementById("filter-text").addEventListener("input", applyFilters);
+
+applyFilters();
+</script>
+</body>
+</html>
