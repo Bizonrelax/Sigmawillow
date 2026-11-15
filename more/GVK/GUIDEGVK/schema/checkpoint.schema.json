@@ -1,0 +1,60 @@
+{
+ "type": "object",
+ "required": [
+  "schema",
+  "fragment",
+  "last_green",
+  "step",
+  "tests",
+  "at"
+ ],
+ "properties": {
+  "schema": {
+   "type": "string"
+  },
+  "schema_ver": {
+   "type": "string"
+  },
+  "at": {
+   "type": "string"
+  },
+  "owner": {
+   "type": "string"
+  },
+  "protocol_ver": {
+   "type": "string"
+  },
+  "fragment": {
+   "type": "string"
+  },
+  "last_green": {
+   "type": "string"
+  },
+  "step": {
+   "type": "string"
+  },
+  "tests": {
+   "type": "object",
+   "required": [
+    "passed",
+    "failed",
+    "skipped"
+   ],
+   "properties": {
+    "passed": {
+     "type": "integer"
+    },
+    "failed": {
+     "type": "integer"
+    },
+    "skipped": {
+     "type": "integer"
+    }
+   },
+   "additionalProperties": true
+  }
+ },
+ "additionalProperties": true,
+ "$schema": "http://json-schema.org/draft-07/schema#",
+ "title": "gvk/checkpoint/1"
+}

@@ -1,0 +1,84 @@
+{
+ "type": "object",
+ "required": [
+  "schema",
+  "pep_ver",
+  "protocol_ver",
+  "repo",
+  "stage",
+  "tz_path",
+  "priority",
+  "roles"
+ ],
+ "properties": {
+  "schema": {
+   "const": "gvk/pep/1"
+  },
+  "pep_ver": {
+   "type": "string"
+  },
+  "protocol_ver": {
+   "type": "string"
+  },
+  "repo": {
+   "type": "string"
+  },
+  "created_at": {
+   "type": "string"
+  },
+  "created_by": {
+   "type": "string"
+  },
+  "stage": {
+   "type": "integer",
+   "minimum": 1
+  },
+  "tz_path": {
+   "type": "string"
+  },
+  "tz_sha": {
+   "type": "string"
+  },
+  "limits": {
+   "type": "object",
+   "required": [
+    "cycles_max",
+    "attempts_max",
+    "stopfix_max"
+   ],
+   "properties": {
+    "cycles_max": {},
+    "attempts_max": {},
+    "stopfix_max": {}
+   },
+   "additionalProperties": true
+  },
+  "priority": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "lever_roles": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "hard_deny": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "roles": {
+   "type": "object",
+   "required": [],
+   "properties": {},
+   "additionalProperties": true
+  }
+ },
+ "additionalProperties": true,
+ "$schema": "http://json-schema.org/draft-07/schema#",
+ "title": "gvk/pep/1"
+}
