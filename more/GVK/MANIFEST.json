@@ -4,7 +4,7 @@
   "alv": "5.0",
   "ppv": "5.0",
   "tav": "1.0",
-  "generated_at": "2026-11-15T21:55:40Z",
+  "generated_at": "2026-11-15T22:25:05Z",
   "entry": "PROTOCOL.md",
   "budget_tokens": {
     "PROTOCOL.md": 4000,
@@ -14,12 +14,12 @@
   },
   "files": {
     "CHANGELOG.md": {
-      "sha256": "790fa439ca0908b05b8df0d0af08fc0c751d69499cbe358eba5143f93c90f5d2",
-      "bytes": 11543
+      "sha256": "bb187e37368cb2d50e82073b4c57fa079ab009c13367a789504ddac135899fba",
+      "bytes": 12189
     },
     "GUIDE.md": {
-      "sha256": "5217452c9b8d01c0e90744b23ab3bf9d53a49be83b800abe3a0dc856eb0458a6",
-      "bytes": 43031
+      "sha256": "788e2084861a187ca9ba09e7f34989bc32efb1d4e4d793cf43250dcd84513ef1",
+      "bytes": 44042
     },
     "GUIDEGVK/COMMON.md": {
       "sha256": "0ff778e07969754f991bc7eec734a1635d24f7a93d19902cce3937e3250c8b45",
@@ -149,6 +149,10 @@
       "sha256": "52c774816de1f72465b7156faadc58c9031ad3b8bcc0f818193c856e8f43a353",
       "bytes": 1829
     },
+    "GUIDEGVK/bin/selftest.py": {
+      "sha256": "fa74bf3965bb83cf5fed53ee68824167d504d3d12ae9ba4990ecfc2d09c9055b",
+      "bytes": 25608
+    },
     "GUIDEGVK/bin/validate.py": {
       "sha256": "0295176461916221ce016f65aa79eb1e71158fb25813966f9d2f2ad023eec6b6",
       "bytes": 3056
@@ -206,8 +210,12 @@
       "bytes": 1968
     },
     "PROTOCOL.md": {
-      "sha256": "c41e861eb8222eb1262a45fd066aebd1682acfea67eb515b93a85f048f80a37c",
-      "bytes": 14371
+      "sha256": "872f235cb5f618de7e98ef52fa5b7499c700cf7a83283b64b59837776121e1ef",
+      "bytes": 14423
+    },
+    "SELFTEST.md": {
+      "sha256": "10ba7199f810318d60ebd24c778d3ac6bcd6c055967ab2f5c85577cb0c04eaa0",
+      "bytes": 9147
     }
   }
 }

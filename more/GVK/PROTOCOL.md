@@ -140,7 +140,7 @@ EOF
 | `GUIDEGVK/CONTRACTS.md`, `schema/*.json` | при записи или чтении структурированного артефакта |
 | `GUIDEGVK/QUALITY.md` | PLANNER_TEST, TESTER, CLOSER |
 | `GUIDEGVK/RESILIENCE.md` | при повторяющихся отказах; FIRST, CLOSER, TERMINATOR, FIREFIGHTER |
-| `GUIDEGVK/bin/` | `guard.py` перед действием, `validate.py` перед записью JSON, `api.py` для атомарных операций, `manifest.py` для владельца |
+| `GUIDEGVK/bin/` | `guard.py` перед действием, `validate.py` перед записью JSON, `api.py` для атомарных операций, `selftest.py` для золотого случая, `manifest.py` для владельца |
 | `GUIDE.md` | только человек |
 
 ## G9. Совместимость
