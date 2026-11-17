@@ -1,0 +1,806 @@
+{
+ "schema": "gvk/pep/1",
+ "pep_ver": "5.1.0",
+ "protocol_ver": "GVK-PROTOCOL:ALV-5.1_PPV-5.1_TAV-1.1",
+ "repo": "OWNER/REPO",
+ "created_at": "",
+ "created_by": "",
+ "stage": 1,
+ "tz_path": "docs/TZ.md",
+ "tz_sha": "",
+ "limits": {
+  "cycles_max": 2,
+  "attempts_max": 3,
+  "stopfix_max": 2
+ },
+ "priority": [
+  "FIRST",
+  "TZFIX",
+  "DEV",
+  "CLEANER",
+  "REVIEWER",
+  "PLANNER_TEST",
+  "TESTER",
+  "COMPLIANCE",
+  "CLOSER"
+ ],
+ "lever_roles": [
+  "WISH",
+  "OBSERVER",
+  "TERMINATOR",
+  "TERMINATOR2",
+  "FIREFIGHTER"
+ ],
+ "hard_deny": [
+  ".git/**",
+  "**/*.token",
+  "**/*.pem",
+  "env.sh",
+  ".env",
+  "**/.netrc",
+  "**/.git-credentials"
+ ],
+ "roles": {
+  "FIRST": {
+   "file": "GUIDEGVK/ROLE_FIRST.md",
+   "needs": [
+    "STACK.md",
+    "PEP.md",
+    "FORMATS.md",
+    "SECURITY.md",
+    "WORK.md",
+    "SKELETON.md"
+   ],
+   "singleton": true,
+   "lease_h": 8,
+   "lever": null,
+   "ver": "5.0",
+   "deficit": "нет PEP.json или нет ветки gvk-plan",
+   "permissions": {
+    "read": [
+     "**"
+    ],
+    "write": [
+     "GVK/**",
+     "REPORT/**",
+     "pom.xml",
+     ".gitignore",
+     ".github/workflows/**",
+     "README.md",
+     "CHANGELOG.md",
+     "THIRD-PARTY-NOTICES.md",
+     "licenses/**",
+     "src/**"
+    ],
+    "deny": [],
+    "merge_main": true,
+    "tools": [
+     "git",
+     "api",
+     "mvn",
+     "ci"
+    ]
+   },
+   "status": "свободен",
+   "owner": null,
+   "fragment": "000",
+   "lease_until": null,
+   "commit": null,
+   "lazy": [
+    "RESILIENCE.md",
+    "STAGES.md",
+    "FILEMAP.md",
+    "SKEL_JAVA.md",
+    "SKEL_PY.md",
+    "SKEL_OTHER.md"
+   ]
+  },
+  "DEV": {
+   "file": "GUIDEGVK/ROLE_DEV.md",
+   "needs": [
+    "WORK.md",
+    "FORMATS.md",
+    "SECURITY.md",
+    "STOPFLOW.md"
+   ],
+   "singleton": false,
+   "lease_h": 80,
+   "lever": "ПРОДОЛЖИ NNN",
+   "ver": "5.0",
+   "deficit": "есть свободный фрагмент или просроченная аренда, не blocked и не наследие",
+   "permissions": {
+    "read": [
+     "**"
+    ],
+    "write": [
+     "src/**",
+     "GVK/claims/**",
+     "GVK/STATE.md",
+     "GVK/REQUESTS.md",
+     "GVK/AUDIT.md",
+     "GVK/births/**",
+     "GVK/PEP.json",
+     "REPORT/frag/**",
+     "REPORT/ckpt/**",
+     "REPORT/events/**",
+     "README.md",
+     "THIRD-PARTY-NOTICES.md",
+     "licenses/**",
+     "tests/**"
+    ],
+    "deny": [
+     "pom.xml",
+     ".gitignore",
+     ".github/**",
+     "GVK/PLAN.md",
+     "GVK/PORTS.md",
+     "GVK/LINKS.md",
+     "GVK/STAGES.md",
+     "GVK/LIMITS.md",
+     "GVK/STOP.md",
+     "GVK/FINAL.md",
+     "@tz_path",
+     "@foreign_packages",
+     "@skeleton"
+    ],
+    "merge_main": false,
+    "tools": [
+     "git",
+     "api",
+     "mvn",
+     "ci"
+    ]
+   },
+   "status": "свободен",
+   "owner": null,
+   "fragment": null,
+   "lease_until": null,
+   "commit": null,
+   "lazy": [
+    "LICENSES.md",
+    "README_SPEC.md",
+    "STAGES.md",
+    "STACK.md",
+    "SKEL_JAVA.md",
+    "SKEL_PY.md",
+    "SKEL_OTHER.md"
+   ]
+  },
+  "CLEANER": {
+   "file": "GUIDEGVK/ROLE_CLEANER.md",
+   "needs": [
+    "WORK.md",
+    "FORMATS.md",
+    "SECURITY.md",
+    "STOPFLOW.md"
+   ],
+   "singleton": false,
+   "lease_h": 4,
+   "lever": null,
+   "ver": "5.0",
+   "deficit": "есть открытые findings без живого fix-захвата",
+   "permissions": {
+    "read": [
+     "**"
+    ],
+    "write": [
+     "src/**",
+     "GVK/fixes/**",
+     "GVK/STATE.md",
+     "GVK/AUDIT.md",
+     "GVK/births/**",
+     "GVK/PEP.json",
+     "REPORT/frag/**",
+     "REPORT/finding/**",
+     "REPORT/ckpt/**",
+     "REPORT/events/**",
+     "README.md",
+     "tests/**"
+    ],
+    "deny": [
+     "pom.xml",
+     ".gitignore",
+     ".github/**",
+     "GVK/PLAN.md",
+     "GVK/STAGES.md",
+     "GVK/LIMITS.md",
+     "GVK/STOP.md",
+     "@tz_path",
+     "@foreign_packages",
+     "@skeleton"
+    ],
+    "merge_main": false,
+    "tools": [
+     "git",
+     "api",
+     "mvn",
+     "ci"
+    ]
+   },
+   "status": "свободен",
+   "owner": null,
+   "fragment": null,
+   "lease_until": null,
+   "commit": null,
+   "lazy": [
+    "README_SPEC.md",
+    "STACK.md",
+    "SKEL_JAVA.md",
+    "SKEL_PY.md",
+    "SKEL_OTHER.md"
+   ]
+  },
+  "REVIEWER": {
+   "file": "GUIDEGVK/ROLE_REVIEWER.md",
+   "needs": [
+    "FORMATS.md",
+    "SECURITY.md",
+    "STAGES.md"
+   ],
+   "singleton": true,
+   "lease_h": 4,
+   "lever": "ПРОВЕРЬ NNN",
+   "ver": "5.0",
+   "deficit": "есть выполненный фрагмент, чей текущий хэш не проверен, без живого fix-захвата",
+   "permissions": {
+    "read": [
+     "**"
+    ],
+    "write": [
+     "REPORT/review/**",
+     "REPORT/finding/**",
+     "REPORT/events/**",
+     "GVK/roles/REVIEWER.md",
+     "GVK/births/**",
+     "GVK/STATE.md",
+     "GVK/PEP.json"
+    ],
+    "deny": [
+     "src/**",
+     "pom.xml",
+     ".github/**",
+     "README.md",
+     "GVK/PLAN.md",
+     "@tz_path",
+     "@skeleton"
+    ],
+    "merge_main": false,
+    "tools": [
+     "git",
+     "api",
+     "mvn"
+    ]
+   },
+   "status": "свободен",
+   "owner": null,
+   "fragment": null,
+   "lease_until": null,
+   "commit": null,
+   "lazy": [
+    "LICENSES.md",
+    "README_SPEC.md",
+    "CONTRACTS.md"
+   ]
+  },
+  "PLANNER_TEST": {
+   "file": "GUIDEGVK/ROLE_PLANNER_TEST.md",
+   "needs": [
+    "FORMATS.md",
+    "QUALITY.md",
+    "CONTRACTS.md"
+   ],
+   "singleton": true,
+   "lease_h": 4,
+   "lever": "ТЕСТ-ПЛАН",
+   "ver": "5.0",
+   "deficit": "разработка закончена, REPORT/test/PLAN.json отсутствует, ТЗ требует проверяемого поведения или GUI",
+   "permissions": {
+    "read": [
+     "**"
+    ],
+    "write": [
+     "REPORT/test/**",
+     "REPORT/events/**",
+     "GVK/roles/PLANNER_TEST.md",
+     "GVK/births/**",
+     "GVK/STATE.md",
+     "GVK/PEP.json"
+    ],
+    "deny": [
+     "src/**",
+     "pom.xml",
+     "@tz_path",
+     "@skeleton"
+    ],
+    "merge_main": false,
+    "tools": [
+     "git",
+     "api"
+    ]
+   },
+   "status": "свободен",
+   "owner": null,
+   "fragment": null,
+   "lease_until": null,
+   "commit": null,
+   "lazy": [
+    "STAGES.md",
+    "FILEMAP.md"
+   ]
+  },
+  "TESTER": {
+   "file": "GUIDEGVK/ROLE_TESTER.md",
+   "needs": [
+    "WORK.md",
+    "FORMATS.md",
+    "QUALITY.md"
+   ],
+   "singleton": false,
+   "lease_h": 8,
+   "lever": "ТЕСТ T-NNN",
+   "ver": "5.0",
+   "deficit": "есть свободные задачи тест-плана без результата",
+   "permissions": {
+    "read": [
+     "**"
+    ],
+    "write": [
+     "src/test/**",
+     "REPORT/test/**",
+     "REPORT/finding/**",
+     "REPORT/events/**",
+     "GVK/births/**",
+     "GVK/STATE.md",
+     "GVK/PEP.json",
+     "tests/**"
+    ],
+    "deny": [
+     "@app_code",
+     "pom.xml",
+     ".github/**",
+     "GVK/PLAN.md",
+     "@tz_path",
+     "@skeleton"
+    ],
+    "merge_main": false,
+    "tools": [
+     "git",
+     "api",
+     "mvn",
+     "ci"
+    ]
+   },
+   "status": "свободен",
+   "owner": null,
+   "fragment": null,
+   "lease_until": null,
+   "commit": null,
+   "lazy": [
+    "CONTRACTS.md",
+    "STAGES.md",
+    "STOPFLOW.md",
+    "STACK.md"
+   ]
+  },
+  "COMPLIANCE": {
+   "file": "GUIDEGVK/ROLE_COMPLIANCE.md",
+   "needs": [
+    "LICENSES.md",
+    "README_SPEC.md",
+    "FORMATS.md",
+    "SECURITY.md"
+   ],
+   "singleton": true,
+   "lease_h": 4,
+   "lever": "ЛИЦЕНЗИИ",
+   "ver": "5.0",
+   "deficit": "перед закрытием нет REPORT/COMPLIANCE.json или он старше последнего зелёного main",
+   "permissions": {
+    "read": [
+     "**"
+    ],
+    "write": [
+     "REPORT/COMPLIANCE.json",
+     "REPORT/finding/**",
+     "REPORT/events/**",
+     "THIRD-PARTY-NOTICES.md",
+     "licenses/**",
+     "README.md",
+     "GVK/roles/COMPLIANCE.md",
+     "GVK/births/**",
+     "GVK/STATE.md",
+     "GVK/PEP.json"
+    ],
+    "deny": [
+     "src/**",
+     "pom.xml",
+     "@tz_path",
+     "@skeleton"
+    ],
+    "merge_main": false,
+    "tools": [
+     "git",
+     "api",
+     "mvn"
+    ]
+   },
+   "status": "свободен",
+   "owner": null,
+   "fragment": null,
+   "lease_until": null,
+   "commit": null
+  },
+  "CLOSER": {
+   "file": "GUIDEGVK/ROLE_CLOSER.md",
+   "needs": [
+    "WORK.md",
+    "FORMATS.md",
+    "README_SPEC.md",
+    "LICENSES.md",
+    "SECURITY.md",
+    "STACK.md"
+   ],
+   "singleton": true,
+   "lease_h": 8,
+   "lever": "ЗАКРОЙ / СОРЕЛ",
+   "ver": "5.0",
+   "deficit": "всё выполнено, живых захватов нет, findings закрыты, тесты приняты, комплаенс зелёный, стопа нет",
+   "permissions": {
+    "read": [
+     "**"
+    ],
+    "write": [
+     "**"
+    ],
+    "deny": [],
+    "merge_main": true,
+    "tools": [
+     "git",
+     "api",
+     "mvn",
+     "ci",
+     "release"
+    ]
+   },
+   "status": "свободен",
+   "owner": null,
+   "fragment": null,
+   "lease_until": null,
+   "commit": null,
+   "lazy": [
+    "STAGES.md",
+    "STOPFLOW.md",
+    "FILEMAP.md",
+    "SKELETON.md",
+    "CONTRACTS.md",
+    "RESILIENCE.md",
+    "QUALITY.md",
+    "SKEL_JAVA.md",
+    "SKEL_PY.md",
+    "SKEL_OTHER.md"
+   ]
+  },
+  "TZFIX": {
+   "file": "GUIDEGVK/ROLE_TZFIX.md",
+   "needs": [
+    "FORMATS.md",
+    "SECURITY.md",
+    "STAGES.md",
+    "STOPFLOW.md"
+   ],
+   "singleton": true,
+   "lease_h": 4,
+   "lever": null,
+   "ver": "5.0",
+   "deficit": "STOP.md с reason infeasible и свободный захват лечения",
+   "permissions": {
+    "read": [
+     "**"
+    ],
+    "write": [
+     "@tz_path",
+     "GVK/STOP.md",
+     "GVK/stopfix.md",
+     "GVK/STAGES.md",
+     "GVK/CHANGE-*.md",
+     "GVK/AUDIT.md",
+     "GVK/STATE.md",
+     "GVK/PLAN.md",
+     "GVK/roles/TZFIX.md",
+     "GVK/births/**",
+     "GVK/PEP.json",
+     "REPORT/events/**"
+    ],
+    "deny": [
+     "src/**",
+     "pom.xml",
+     ".github/**"
+    ],
+    "merge_main": false,
+    "tools": [
+     "git",
+     "api"
+    ]
+   },
+   "status": "свободен",
+   "owner": null,
+   "fragment": null,
+   "lease_until": null,
+   "commit": null,
+   "lazy": []
+  },
+  "WISH": {
+   "file": "GUIDEGVK/ROLE_WISH.md",
+   "needs": [
+    "FORMATS.md",
+    "SECURITY.md",
+    "STAGES.md"
+   ],
+   "singleton": true,
+   "lease_h": 4,
+   "lever": "ЖЕЛАНИЕ: текст",
+   "ver": "5.0",
+   "deficit": "рычаг ЖЕЛАНИЕ или ответ владельца на частичную выполнимость",
+   "permissions": {
+    "read": [
+     "**"
+    ],
+    "write": [
+     "@tz_path",
+     "GVK/STAGES.md",
+     "GVK/CHANGE-*.md",
+     "GVK/PLAN.md",
+     "GVK/PORTS.md",
+     "GVK/LINKS.md",
+     "GVK/STATE.md",
+     "GVK/AUDIT.md",
+     "GVK/roles/WISH.md",
+     "GVK/births/**",
+     "GVK/PEP.json",
+     "REPORT/events/**"
+    ],
+    "deny": [
+     "src/**",
+     "pom.xml",
+     ".github/**",
+     "GVK/STOP.md"
+    ],
+    "merge_main": false,
+    "tools": [
+     "git",
+     "api"
+    ]
+   },
+   "status": "свободен",
+   "owner": null,
+   "fragment": null,
+   "lease_until": null,
+   "commit": null,
+   "lazy": [
+    "STACK.md"
+   ]
+  },
+  "OBSERVER": {
+   "file": "GUIDEGVK/ROLE_OBSERVER.md",
+   "needs": [],
+   "singleton": false,
+   "lease_h": 0,
+   "lever": "ТОЛЬКО ОТЧЁТ",
+   "ver": "5.0",
+   "deficit": "рычаг ТОЛЬКО ОТЧЁТ или ПАМЯТКА",
+   "permissions": {
+    "read": [
+     "**"
+    ],
+    "write": [],
+    "deny": [
+     "**"
+    ],
+    "merge_main": false,
+    "tools": [
+     "git",
+     "api"
+    ]
+   },
+   "status": "свободен",
+   "owner": null,
+   "fragment": null,
+   "lease_until": null,
+   "commit": null,
+   "lazy": [
+    "LEVERS.md"
+   ]
+  },
+  "TERMINATOR": {
+   "file": "GUIDEGVK/ROLE_TERMINATOR.md",
+   "needs": [
+    "FORMATS.md",
+    "SECURITY.md",
+    "STAGES.md",
+    "STOPFLOW.md",
+    "FILEMAP.md"
+   ],
+   "singleton": true,
+   "lease_h": 4,
+   "lever": "ТЕРМИНАТОР",
+   "ver": "5.0",
+   "deficit": "рычаг ТЕРМИНАТОР",
+   "permissions": {
+    "read": [
+     "**"
+    ],
+    "write": [
+     "@tz_path",
+     "GVK/STOP.md",
+     "GVK/STAGES.md",
+     "GVK/CHANGE-*.md",
+     "GVK/PLAN.md",
+     "GVK/PORTS.md",
+     "GVK/LINKS.md",
+     "GVK/AUDIT.md",
+     "GVK/STATE.md",
+     "GVK/claims/**",
+     "GVK/fixes/**",
+     "GVK/roles/**",
+     "GVK/releases/**",
+     "GVK/births/**",
+     "GVK/PEP.json",
+     "REPORT/events/**"
+    ],
+    "deny": [
+     "src/**",
+     "pom.xml",
+     ".github/**",
+     "GVK/FINAL.md",
+     "GVK/LIMITS.md"
+    ],
+    "merge_main": false,
+    "tools": [
+     "git",
+     "api",
+     "mvn"
+    ]
+   },
+   "status": "свободен",
+   "owner": null,
+   "fragment": null,
+   "lease_until": null,
+   "commit": null,
+   "lazy": [
+    "RESILIENCE.md",
+    "STACK.md"
+   ]
+  },
+  "TERMINATOR2": {
+   "file": "GUIDEGVK/ROLE_TERMINATOR2.md",
+   "needs": [
+    "FORMATS.md",
+    "STOPFLOW.md"
+   ],
+   "singleton": true,
+   "lease_h": 1,
+   "lever": "ТЕРМИНАТОР 2 [NNN ...]",
+   "ver": "5.0",
+   "deficit": "рычаг ТЕРМИНАТОР 2",
+   "permissions": {
+    "read": [
+     "**"
+    ],
+    "write": [
+     "GVK/claims/**",
+     "GVK/fixes/**",
+     "GVK/roles/**",
+     "GVK/releases/**",
+     "GVK/STATE.md",
+     "GVK/births/**",
+     "GVK/PEP.json",
+     "REPORT/events/**"
+    ],
+    "deny": [
+     "src/**",
+     "@tz_path",
+     "GVK/PLAN.md",
+     "GVK/STAGES.md",
+     "GVK/STOP.md",
+     "GVK/LIMITS.md"
+    ],
+    "merge_main": false,
+    "tools": [
+     "git",
+     "api"
+    ]
+   },
+   "status": "свободен",
+   "owner": null,
+   "fragment": null,
+   "lease_until": null,
+   "commit": null,
+   "lazy": []
+  },
+  "FIREFIGHTER": {
+   "file": "GUIDEGVK/ROLE_FIREFIGHTER.md",
+   "needs": [
+    "WORK.md",
+    "FORMATS.md",
+    "SECURITY.md",
+    "PEP.md"
+   ],
+   "singleton": true,
+   "lease_h": 8,
+   "lever": "ПОЖАР",
+   "ver": "5.0",
+   "deficit": "рычаг ПОЖАР: заброшенный или запущенный репозиторий",
+   "permissions": {
+    "read": [
+     "**"
+    ],
+    "write": [
+     "**"
+    ],
+    "deny": [
+     "@tz_path",
+     "GVK/STAGES.md",
+     "GVK/LIMITS.md",
+     "GVK/births/**",
+     "GVK/releases/**"
+    ],
+    "merge_main": false,
+    "tools": [
+     "git",
+     "api",
+     "mvn",
+     "ci"
+    ]
+   },
+   "status": "свободен",
+   "owner": null,
+   "fragment": null,
+   "lease_until": null,
+   "commit": null,
+   "lazy": [
+    "FILEMAP.md",
+    "STAGES.md",
+    "RESILIENCE.md",
+    "SKELETON.md",
+    "STACK.md",
+    "SKEL_JAVA.md",
+    "SKEL_PY.md",
+    "SKEL_OTHER.md"
+   ]
+  }
+ },
+ "lazy_rule": "Модули из lazy грузятся только по факту: LICENSES.md при первом заимствовании, README_SPEC.md при первом изменении видимого поведения, STAGES.md при спорном пине, STOPFLOW.md при реальном стопе, RESILIENCE.md при повторяющихся отказах, LEVERS.md при рычаге, CONTRACTS.md при работе с незнакомым артефактом. Без факта не грузить.",
+ "stack": {
+  "language": "auto",
+  "version": "",
+  "packaging": "",
+  "runtime_included": true,
+  "runtime_cost": "none",
+  "skeleton": [
+   "pom.xml",
+   ".gitignore",
+   ".github/**",
+   "pyproject.toml",
+   "requirements.txt",
+   "setup.py",
+   "build.py",
+   "*.spec",
+   "*.csproj",
+   "go.mod",
+   "Cargo.toml",
+   "package.json",
+   "package-lock.json"
+  ],
+  "decided_by": null,
+  "report": "REPORT/stack.json",
+  "rule": "Язык по STACK.md ST2: ТЗ, затем наследие, затем выбор под критерии ST1. Отказ по расширению файла запрещён.",
+  "app_code": [
+   "src/main/**",
+   "src/app/**"
+  ],
+  "test_code": [
+   "src/test/**",
+   "tests/**"
+  ]
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "type": "object",
+ "required": [
+  "schema",
+  "owner",
+  "task",
+  "lease_until",
+  "at"
+ ],
+ "properties": {
+  "schema": {
+   "type": "string"
+  },
+  "schema_ver": {
+   "type": "string"
+  },
+  "at": {
+   "type": "string"
+  },
+  "owner": {
+   "type": "string"
+  },
+  "protocol_ver": {
+   "type": "string"
+  },
+  "task": {
+   "type": "string"
+  },
+  "lease_until": {
+   "type": "string"
+  },
+  "stage": {
+   "type": "integer"
+  }
+ },
+ "additionalProperties": true,
+ "$schema": "http://json-schema.org/draft-07/schema#",
+ "title": "gvk/test_claim/1"
+}
