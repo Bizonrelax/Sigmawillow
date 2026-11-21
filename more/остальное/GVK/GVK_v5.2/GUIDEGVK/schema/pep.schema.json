@@ -1,0 +1,292 @@
+{
+ "type": "object",
+ "required": [
+  "schema",
+  "pep_ver",
+  "protocol_ver",
+  "repo",
+  "stage",
+  "tz_path",
+  "priority",
+  "roles"
+ ],
+ "properties": {
+  "schema": {
+   "const": "gvk/pep/1"
+  },
+  "pep_ver": {
+   "type": "string"
+  },
+  "protocol_ver": {
+   "type": "string"
+  },
+  "repo": {
+   "type": "string"
+  },
+  "created_at": {
+   "type": "string"
+  },
+  "created_by": {
+   "type": "string"
+  },
+  "stage": {
+   "type": "integer",
+   "minimum": 1
+  },
+  "tz_path": {
+   "type": "string"
+  },
+  "tz_sha": {
+   "type": "string"
+  },
+  "limits": {
+   "type": "object",
+   "required": [
+    "cycles_max",
+    "attempts_max",
+    "stopfix_max"
+   ],
+   "properties": {
+    "cycles_max": {},
+    "attempts_max": {},
+    "stopfix_max": {},
+    "lease_h_default": {
+     "type": "integer",
+     "minimum": 1
+    },
+    "lease_renew_h": {
+     "type": "integer",
+     "minimum": 1
+    },
+    "wait_h": {
+     "type": "integer",
+     "minimum": 1
+    },
+    "budget_input_tokens": {
+     "type": "integer",
+     "minimum": 1000
+    },
+    "tokens_report": {
+     "enum": [
+      "exact",
+      "estimate",
+      "off"
+     ]
+    }
+   },
+   "additionalProperties": true
+  },
+  "priority": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "lever_roles": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "hard_deny": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "roles": {
+   "type": "object",
+   "minProperties": 1,
+   "patternProperties": {
+    "^[A-Z][A-Z0-9_]*$": {
+     "type": "object",
+     "required": [
+      "file",
+      "needs",
+      "singleton",
+      "lease_h",
+      "permissions",
+      "ver",
+      "claim"
+     ],
+     "properties": {
+      "file": {
+       "type": "string"
+      },
+      "needs": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "lazy": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "dicts": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "singleton": {
+       "type": "boolean"
+      },
+      "lease_h": {
+       "type": "integer",
+       "minimum": 0
+      },
+      "lease_renew": {
+       "type": "boolean"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "ver": {
+       "type": "string"
+      },
+      "deficit": {
+       "type": "string"
+      },
+      "lever": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "permissions": {
+       "type": "object",
+       "required": [
+        "read",
+        "write",
+        "deny",
+        "merge_main",
+        "tools",
+        "branches"
+       ],
+       "properties": {
+        "read": {
+         "type": "array",
+         "items": {
+          "type": "string"
+         }
+        },
+        "write": {
+         "type": "array",
+         "items": {
+          "type": "string"
+         }
+        },
+        "deny": {
+         "type": "array",
+         "items": {
+          "type": "string"
+         }
+        },
+        "create_only": {
+         "type": "array",
+         "items": {
+          "type": "string"
+         }
+        },
+        "branches": {
+         "type": "array",
+         "items": {
+          "type": "string"
+         }
+        },
+        "merge_main": {
+         "type": "boolean"
+        },
+        "tools": {
+         "type": "array",
+         "items": {
+          "type": "string"
+         }
+        }
+       },
+       "additionalProperties": true
+      },
+      "status": {
+       "enum": [
+        "free",
+        "busy",
+        "blocked",
+        "свободен",
+        "занят",
+        "заблокирован"
+       ]
+      },
+      "owner": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "fragment": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "lease_until": {
+       "type": [
+        "string",
+        "null"
+       ],
+       "format": "date-time"
+      },
+      "commit": {
+       "type": [
+        "string",
+        "null"
+       ]
+      }
+     },
+     "additionalProperties": true
+    }
+   },
+   "additionalProperties": false
+  },
+  "stack": {
+   "type": "object",
+   "required": [],
+   "properties": {
+    "language": {
+     "type": "string"
+    },
+    "skeleton": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   },
+   "additionalProperties": true
+  },
+  "repo_kind": {
+   "enum": [
+    "code",
+    "doc"
+   ]
+  },
+  "protocol_dir": {
+   "type": "string"
+  },
+  "lever_map": {
+   "type": "object",
+   "additionalProperties": {
+    "type": "string"
+   }
+  },
+  "dicts": {
+   "type": "object",
+   "additionalProperties": true
+  }
+ },
+ "additionalProperties": true,
+ "$schema": "http://json-schema.org/draft-07/schema#",
+ "title": "gvk/pep/1"
+}

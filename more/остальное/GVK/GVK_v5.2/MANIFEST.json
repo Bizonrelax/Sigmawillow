@@ -1,0 +1,435 @@
+{
+  "schema": "gvk/manifest/2",
+  "version": "GVK-PROTOCOL:ALV-5.2_PPV-5.2.1_TAV-1.3",
+  "alv": "5.2",
+  "ppv": "5.2.1",
+  "tav": "1.3",
+  "generated_at": "2026-11-21T19:55:39Z",
+  "entry": "PROTOCOL.md",
+  "estimator": "gvk-bytes/1",
+  "budget_tokens": {
+    "PROTOCOL.md": 4000,
+    "GUIDEGVK/COMMON.md": 7000,
+    "role": 2500,
+    "needs": 7000,
+    "state": 1500,
+    "total_input": 20000
+  },
+  "files": {
+    "CHANGELOG.md": {
+      "sha256": "d49cd7211e64fd2f6055d27a5c9130b453b2abc6af8a0204c65c6f5d1aa6e442",
+      "bytes": 48260,
+      "tokens_est": 11713
+    },
+    "GUIDE.md": {
+      "sha256": "b3d3b23514d6005247cb42055f3174ae2447307852d8c4a2c1ecf1a0f26448e6",
+      "bytes": 67615,
+      "tokens_est": 16090
+    },
+    "GUIDEGVK/BOOT.md": {
+      "sha256": "85a0dc29b8ca6ad39e85982c41d66cc1ffba4ca67ff4b12f94882a87942c4eb6",
+      "bytes": 3435,
+      "tokens_est": 841
+    },
+    "GUIDEGVK/COMMON.md": {
+      "sha256": "a32a2ad4abad1fb070004acabd4de31520d94ae8a073edcd6b50534aec050ae8",
+      "bytes": 28714,
+      "tokens_est": 6915
+    },
+    "GUIDEGVK/CONTRACTS.md": {
+      "sha256": "681f09802be04fb2d4ca6a36fd82217af04862e84631ee773657803906ee2f3b",
+      "bytes": 9706,
+      "tokens_est": 2421
+    },
+    "GUIDEGVK/ECONOMY.md": {
+      "sha256": "a237f17654c1878dbfc89de47ecc32646d2e35dec386111376bb4d26eac5e927",
+      "bytes": 16256,
+      "tokens_est": 3981
+    },
+    "GUIDEGVK/FILEMAP.md": {
+      "sha256": "1e3ec69b53c63179e0d12947ea8a6714d00d688512b3f0bdbdb6ca428409e8cc",
+      "bytes": 12555,
+      "tokens_est": 3098
+    },
+    "GUIDEGVK/FORMATS.md": {
+      "sha256": "8fe6e3284213e9f081b67a35055856212d8d127b93dcc109a57fcd82717aeb1d",
+      "bytes": 7613,
+      "tokens_est": 1853
+    },
+    "GUIDEGVK/LEVERS.md": {
+      "sha256": "341cbbd6f6e12c035c34d5d6f153fc7236d0e8cad5599b9df688fc88e148f1e8",
+      "bytes": 21342,
+      "tokens_est": 5144
+    },
+    "GUIDEGVK/LICENSES.md": {
+      "sha256": "56eb0e90101268beb4dbf24e3034129a183bfb1d95dd30964567f7e0364b47cf",
+      "bytes": 3489,
+      "tokens_est": 838
+    },
+    "GUIDEGVK/MAP.md": {
+      "sha256": "82d0bb341262ea024ee673917932d689ba92dfd8ad9069f913a8c079a52897e0",
+      "bytes": 3547,
+      "tokens_est": 880
+    },
+    "GUIDEGVK/PEP.md": {
+      "sha256": "a3b53be95a1c9ffe3fb3a205135524cdc34882889478b9f15babc57692f4558e",
+      "bytes": 10341,
+      "tokens_est": 2511
+    },
+    "GUIDEGVK/QUALITY.md": {
+      "sha256": "1daa78e607fc0e817213d63bbfac66816888b884ea9ae5e0b5edfba6faf50c66",
+      "bytes": 10243,
+      "tokens_est": 2429
+    },
+    "GUIDEGVK/README_SPEC.md": {
+      "sha256": "f4a4a8df95ef1d859d2e1c8f80cd453be341bed394dd1649a9618e61b593301d",
+      "bytes": 5699,
+      "tokens_est": 1363
+    },
+    "GUIDEGVK/RESILIENCE.md": {
+      "sha256": "7acddf141245e37b83c8fd6c2e7d3c274cd9515b89007f62a7bf130412863845",
+      "bytes": 11920,
+      "tokens_est": 2823
+    },
+    "GUIDEGVK/ROLE_CLEANER.md": {
+      "sha256": "f2542a995175f39e22374a282cc91cd75e65deaa2e450a080911da1c619390d7",
+      "bytes": 7095,
+      "tokens_est": 1729
+    },
+    "GUIDEGVK/ROLE_CLOSER.md": {
+      "sha256": "03e4e2c3e711195ef7ecd53bd2b038d83c207387acd138c118145f88f02ea2ab",
+      "bytes": 11173,
+      "tokens_est": 2713
+    },
+    "GUIDEGVK/ROLE_COMPLIANCE.md": {
+      "sha256": "15fa220f44b565a43aab8512fcd98d2644cf8d0627ba70256a0fd3d729b5c640",
+      "bytes": 8995,
+      "tokens_est": 2188
+    },
+    "GUIDEGVK/ROLE_DEV.md": {
+      "sha256": "3b1b33e9a1e8521119492ef0a809da9842313d78aa47b37765b3cef7aa829c99",
+      "bytes": 7865,
+      "tokens_est": 1920
+    },
+    "GUIDEGVK/ROLE_FIREFIGHTER.md": {
+      "sha256": "9e9712bca606d3b45458cd17b078f410bc7f8abc9203000b5d2dd27637dfff84",
+      "bytes": 9366,
+      "tokens_est": 2256
+    },
+    "GUIDEGVK/ROLE_FIRST.md": {
+      "sha256": "f1ac54236f159c787e88ebebbc74ffebf4dc4f62bd075e67bc39d7cb85292e44",
+      "bytes": 10774,
+      "tokens_est": 2622
+    },
+    "GUIDEGVK/ROLE_OBSERVER.md": {
+      "sha256": "02d9a6901d87fcd62e3b6ddbe9f080dcccc6a737fa87fc7d4702bcd34b8fd692",
+      "bytes": 6395,
+      "tokens_est": 1543
+    },
+    "GUIDEGVK/ROLE_PLANNER_TEST.md": {
+      "sha256": "81c99ccd8c2adb41f87aea023e5337f4bd52155df1dde8444646228d9b1a9446",
+      "bytes": 10666,
+      "tokens_est": 2569
+    },
+    "GUIDEGVK/ROLE_REVIEWER.md": {
+      "sha256": "aa7edbebe8d0d3d0c19efc6e38945fbc6001793fad8721e62d63e0f8131f1911",
+      "bytes": 7541,
+      "tokens_est": 1834
+    },
+    "GUIDEGVK/ROLE_TERMINATOR.md": {
+      "sha256": "e9f5e6202cb70886183ec8d878422de4d0dfeae1b689f0db64d0c05aa9734652",
+      "bytes": 9606,
+      "tokens_est": 2330
+    },
+    "GUIDEGVK/ROLE_TERMINATOR2.md": {
+      "sha256": "b1f2f61e9599e729fe831e623b96298084c7654484654df5254a18789a8d0892",
+      "bytes": 3669,
+      "tokens_est": 902
+    },
+    "GUIDEGVK/ROLE_TESTER.md": {
+      "sha256": "e31c963e951c0f91c559a884d163ca1bca56602ac592000dd489194081217247",
+      "bytes": 9710,
+      "tokens_est": 2346
+    },
+    "GUIDEGVK/ROLE_TZFIX.md": {
+      "sha256": "0b30d2c44482ce3e87452ee595340c2b0dbc6dcd3b38ce22f00bae6e1aae276f",
+      "bytes": 4358,
+      "tokens_est": 1061
+    },
+    "GUIDEGVK/ROLE_WISH.md": {
+      "sha256": "bbf0272547fd1dede4c05244efc26a60b20ce17a6e5ab323b3477f8fa9ef5c47",
+      "bytes": 7122,
+      "tokens_est": 1720
+    },
+    "GUIDEGVK/SECURITY.md": {
+      "sha256": "b6e3bd2ba4b5ad49d3fba1d3653aa25e4b3d54352e240d55e268aa4cf14881c6",
+      "bytes": 11831,
+      "tokens_est": 2872
+    },
+    "GUIDEGVK/SKELETON.md": {
+      "sha256": "2b37c45d8cbc580bd1dc2ab617532edb1b86656e6eca3387481ab481a183bb95",
+      "bytes": 3536,
+      "tokens_est": 867
+    },
+    "GUIDEGVK/SKEL_JAVA.md": {
+      "sha256": "e07501eb9f7badb5dbc1fa9684b51c593e9d52ac451f83aa9b584caeef62d8d9",
+      "bytes": 8981,
+      "tokens_est": 2373
+    },
+    "GUIDEGVK/SKEL_OTHER.md": {
+      "sha256": "14e66b8756b6385c047a8d709a855679430052dd106814f7abaf2c6eec29a94b",
+      "bytes": 3545,
+      "tokens_est": 868
+    },
+    "GUIDEGVK/SKEL_PY.md": {
+      "sha256": "72fe0b71468d8e3e3590fdb6c1824e7265190b8560b568b6a29a5c60dce8160d",
+      "bytes": 6045,
+      "tokens_est": 1529
+    },
+    "GUIDEGVK/STACK.md": {
+      "sha256": "602ec8ee7894ed5b7c803f3e134b3c0abc08582abe135c5ee74a20288f33fd35",
+      "bytes": 11404,
+      "tokens_est": 2721
+    },
+    "GUIDEGVK/STAGES.md": {
+      "sha256": "d9139d3f120fec19e1fc0d511ab6d815b07757c6b7150519119f92b738eb39c4",
+      "bytes": 3483,
+      "tokens_est": 836
+    },
+    "GUIDEGVK/STOPFLOW.md": {
+      "sha256": "bb81fed79bd2d3c832100056be3e43ec6a3a4fe4a91ce122e820fd4851ba4305",
+      "bytes": 4616,
+      "tokens_est": 1112
+    },
+    "GUIDEGVK/WORK.md": {
+      "sha256": "8e9a4f3ade7aa13a0b2dca868dc5ba91ddcad12c44c0a658720f4bcc3ccc470f",
+      "bytes": 13678,
+      "tokens_est": 3289
+    },
+    "GUIDEGVK/bin/api.py": {
+      "sha256": "d85b119d69782d2f1d612980687d71eae9e8623332c46e2df2f0d3cd01cf903b",
+      "bytes": 21538,
+      "tokens_est": 5826
+    },
+    "GUIDEGVK/bin/assemble.py": {
+      "sha256": "2fda0496e258c206a874dd96dfccadbfe95c0bf7e185ba58c52122d0bcc23832",
+      "bytes": 11935,
+      "tokens_est": 3084
+    },
+    "GUIDEGVK/bin/dict.py": {
+      "sha256": "a3f56baf4ca4eca7d3ea3f74b399eb6fc0469cc1ba140f8de698b590f79ba328",
+      "bytes": 14917,
+      "tokens_est": 4026
+    },
+    "GUIDEGVK/bin/doctor.py": {
+      "sha256": "26aa9b9df25a4df44dd526677911772f841d898c58b5377a8ba28592fc19df57",
+      "bytes": 19875,
+      "tokens_est": 5350
+    },
+    "GUIDEGVK/bin/guard.py": {
+      "sha256": "11212488854117615dfb5817f619fe00852f3f33be254dcf6a4d575613483ff8",
+      "bytes": 21200,
+      "tokens_est": 5682
+    },
+    "GUIDEGVK/bin/manifest.py": {
+      "sha256": "d45e2c32fd395e12cbed5c339c13b6de70f4263d05b986afdbf23b527b86cfb5",
+      "bytes": 3802,
+      "tokens_est": 1032
+    },
+    "GUIDEGVK/bin/pep.py": {
+      "sha256": "653a041a5edd3646d3b3c5e2b6522f745988ec737c495ee41da44bc86c5b8d0a",
+      "bytes": 10281,
+      "tokens_est": 2794
+    },
+    "GUIDEGVK/bin/selftest.py": {
+      "sha256": "a8cd7038ba2326a61e77d9c68c3f2ad70e758969ff1f4e16534c70c438eff4bb",
+      "bytes": 55391,
+      "tokens_est": 14834
+    },
+    "GUIDEGVK/bin/tokens.py": {
+      "sha256": "daa3eca920cf11d15b67c9bd8d28df574510c6013cd22178b9e836aa4e9ac7cc",
+      "bytes": 7773,
+      "tokens_est": 2116
+    },
+    "GUIDEGVK/bin/validate.py": {
+      "sha256": "4077997085c31c96a8a96daca23fb88f2d3d85badfb796ea8b447363ece47248",
+      "bytes": 10926,
+      "tokens_est": 2970
+    },
+    "GUIDEGVK/dict/GLOBAL.dict.md": {
+      "sha256": "289b4bca2b4846e4a84473cdcfbf6b1310728fa1dc95a3fd40f9d04a8eb781a6",
+      "bytes": 1741,
+      "tokens_est": 416
+    },
+    "GUIDEGVK/dict/GROUP-CODE.dict.md": {
+      "sha256": "50e4534038263007b572b9eeaaad979a2311c904fb5761c5e7eae96c08ed71bb",
+      "bytes": 1345,
+      "tokens_est": 331
+    },
+    "GUIDEGVK/dict/GROUP-STATE.dict.md": {
+      "sha256": "8f3380219ba7bb27fc27dd75ced31171e23f3836ea933f0d22e97fe5eabd949d",
+      "bytes": 1221,
+      "tokens_est": 296
+    },
+    "GUIDEGVK/dict/GROUP-TEST.dict.md": {
+      "sha256": "133b736c7e7c44960c5d5b70d9b3f1105bce61ec8cc0645c877787e5396da866",
+      "bytes": 1311,
+      "tokens_est": 317
+    },
+    "GUIDEGVK/dict/ROLE-CLEANER.dict.md": {
+      "sha256": "43b985bd26ea80365b29a71d764958aa9b268113d0c719d3e2a91d135467f177",
+      "bytes": 745,
+      "tokens_est": 184
+    },
+    "GUIDEGVK/dict/ROLE-CLOSER.dict.md": {
+      "sha256": "f637dc73b1d29c872f45befeba2b3750c8c38c7c109969051073e8b757cdcdf1",
+      "bytes": 859,
+      "tokens_est": 211
+    },
+    "GUIDEGVK/dict/ROLE-COMPLIANCE.dict.md": {
+      "sha256": "70b1a6974be35f8c524eceb17b959ea944fa1a36c635b22dd922cb69e35a309c",
+      "bytes": 686,
+      "tokens_est": 169
+    },
+    "GUIDEGVK/dict/ROLE-DEV.dict.md": {
+      "sha256": "624bff149389546a3e82f943e3c22edc4b72fdbc9a742b9205b1b79a627c7188",
+      "bytes": 858,
+      "tokens_est": 209
+    },
+    "GUIDEGVK/dict/ROLE-FIREFIGHTER.dict.md": {
+      "sha256": "c30900d040a0139f104307969c6d9a42fd09eecccd8125e04f64ec8c397ba9c5",
+      "bytes": 666,
+      "tokens_est": 166
+    },
+    "GUIDEGVK/dict/ROLE-FIRST.dict.md": {
+      "sha256": "d7efad353e16a73e45971d1c7bfe645879701fed1e825d96a394a070f69f1bc5",
+      "bytes": 712,
+      "tokens_est": 176
+    },
+    "GUIDEGVK/dict/ROLE-PLANNER_TEST.dict.md": {
+      "sha256": "b7bfcaa4069ee18f9fbb51aed6786788602c9ae052681d7c6947c565b9fda0a8",
+      "bytes": 685,
+      "tokens_est": 170
+    },
+    "GUIDEGVK/dict/ROLE-REVIEWER.dict.md": {
+      "sha256": "fd312d86f9ed54c1dddf59006c8d5122aadfeeeef775e450a725b17993c4f2ea",
+      "bytes": 829,
+      "tokens_est": 203
+    },
+    "GUIDEGVK/dict/ROLE-TERMINATOR.dict.md": {
+      "sha256": "e9200e880ca1e8d1acb2bf33f3685a8f03ea8ce0e50437bd3b09074748559e19",
+      "bytes": 693,
+      "tokens_est": 171
+    },
+    "GUIDEGVK/dict/ROLE-TERMINATOR2.dict.md": {
+      "sha256": "b36b7c79d34de82bf43f24a192e95aab4a183b993e698f3d17a9e1ebdcfc3e2d",
+      "bytes": 564,
+      "tokens_est": 141
+    },
+    "GUIDEGVK/dict/ROLE-TESTER.dict.md": {
+      "sha256": "c4ecef87a094700dc57bbcc82c7e372dff47db392c76d970d533ac1c6a228592",
+      "bytes": 770,
+      "tokens_est": 189
+    },
+    "GUIDEGVK/dict/ROLE-TZFIX.dict.md": {
+      "sha256": "56159f7f2eeb0b4332860a99b398ef3f37df96ea4d8b98846ac2f96cfc7ea32e",
+      "bytes": 577,
+      "tokens_est": 143
+    },
+    "GUIDEGVK/dict/ROLE-WISH.dict.md": {
+      "sha256": "d27fa2074deca0698a489bd896c7fc104a5b1eb5a422f508885cf698051fc6a3",
+      "bytes": 664,
+      "tokens_est": 163
+    },
+    "GUIDEGVK/pep.template.json": {
+      "sha256": "9692ceebcd04156ce312f9e640291da9c125e40dc2728fc14d34de1d6469befa",
+      "bytes": 33717,
+      "tokens_est": 9201
+    },
+    "GUIDEGVK/schema/checkpoint.schema.json": {
+      "sha256": "eba6a7a78a247a5e348a858802a772d42ae731e03ad1c671fc537eac699df6c5",
+      "bytes": 950,
+      "tokens_est": 264
+    },
+    "GUIDEGVK/schema/compliance.schema.json": {
+      "sha256": "6447de3dee69fec00c10173a37ce922f2f22caa8929d379b2684fdd9efb40a5d",
+      "bytes": 2014,
+      "tokens_est": 558
+    },
+    "GUIDEGVK/schema/event.schema.json": {
+      "sha256": "ecd8d307b718be3689887914ff194fdf1e6573c90c1ac7ca710ea5cc9942e887",
+      "bytes": 1058,
+      "tokens_est": 294
+    },
+    "GUIDEGVK/schema/final_report.schema.json": {
+      "sha256": "57861f51beaf6943b1f2f08e326339f73de70598abdea1ebcc905397aa9c4d7d",
+      "bytes": 2132,
+      "tokens_est": 590
+    },
+    "GUIDEGVK/schema/finding.schema.json": {
+      "sha256": "8c6e82d4a0d32fc3465730308b4c20e696171cb5e74c21e06263f7fba2a1ec6b",
+      "bytes": 1505,
+      "tokens_est": 414
+    },
+    "GUIDEGVK/schema/pep.schema.json": {
+      "sha256": "a18db57e8ea46f35d124f793297a2854e7109851f6820b982f68531d846978cb",
+      "bytes": 4812,
+      "tokens_est": 1334
+    },
+    "GUIDEGVK/schema/report.schema.json": {
+      "sha256": "1bc3e0577c23a9e1eaa2e61d9b0000a588cfa648143a103e3cf81f4471e2d9ca",
+      "bytes": 1802,
+      "tokens_est": 499
+    },
+    "GUIDEGVK/schema/review.schema.json": {
+      "sha256": "87237927dd750cb1cf0d48cf5466f690d5723368000a54b443cccf33a3faa4ac",
+      "bytes": 1289,
+      "tokens_est": 357
+    },
+    "GUIDEGVK/schema/stack.schema.json": {
+      "sha256": "7010d3098f3c80946661ff15d8edb02b922481d6f7116908f8fd3c4e9167ddbc",
+      "bytes": 1724,
+      "tokens_est": 479
+    },
+    "GUIDEGVK/schema/test_claim.schema.json": {
+      "sha256": "7a1507c1d95c0bdf4c93f45ba708108e2cbc3e4e85971039f613d7c41f474bab",
+      "bytes": 623,
+      "tokens_est": 173
+    },
+    "GUIDEGVK/schema/test_plan.schema.json": {
+      "sha256": "ce1e31a55a3ed079de53f234afbe26cc93a81e2b7322ce2beabbe56e736714af",
+      "bytes": 2482,
+      "tokens_est": 687
+    },
+    "GUIDEGVK/schema/test_result.schema.json": {
+      "sha256": "8b4c2dd26afc441dcb82b66e5ced86f8a3217697aa057437bf83a16330701eba",
+      "bytes": 1901,
+      "tokens_est": 528
+    },
+    "GUIDEGVK/schema/test_task.schema.json": {
+      "sha256": "ff099b267f03855d17a4b4a936189ecfb8f4962a9819dff4c95acb19cd88cb91",
+      "bytes": 2029,
+      "tokens_est": 562
+    },
+    "GUIDEGVK/schema/tokens.schema.json": {
+      "sha256": "2e77f10ead63eb6d73de0d6d4fdd1de42a91b50ac9de7d1f4a351b38341e3ac7",
+      "bytes": 1851,
+      "tokens_est": 514
+    },
+    "GUIDEGVK/schema/tokens_total.schema.json": {
+      "sha256": "4b33fad7378f37ae5d14e64ec8bd348967ea76ab76e1d4c1d0cc8082753bb3a2",
+      "bytes": 778,
+      "tokens_est": 216
+    },
+    "PROTOCOL.md": {
+      "sha256": "33345ba122dd78d9e9e47457b9e514a0651d94b4f78a69b9f5825f419c694957",
+      "bytes": 16476,
+      "tokens_est": 4023
+    },
+    "SELFTEST.md": {
+      "sha256": "78e35c488642896f49730e4d1033f5f02bfd4637f16c9dce669375e8c3341a8a",
+      "bytes": 18706,
+      "tokens_est": 4469
+    }
+  }
+}

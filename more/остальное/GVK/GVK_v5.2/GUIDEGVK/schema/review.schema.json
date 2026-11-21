@@ -1,0 +1,91 @@
+{
+ "type": "object",
+ "required": [
+  "schema",
+  "fragment",
+  "verdict",
+  "checked_sha",
+  "reviewer",
+  "tz_sha",
+  "stage",
+  "at"
+ ],
+ "properties": {
+  "schema": {
+   "type": "string"
+  },
+  "schema_ver": {
+   "type": "string"
+  },
+  "at": {
+   "type": "string",
+   "format": "date-time"
+  },
+  "owner": {
+   "type": "string"
+  },
+  "protocol_ver": {
+   "type": "string"
+  },
+  "fragment": {
+   "type": "string"
+  },
+  "verdict": {
+   "enum": [
+    "ПРИНЯТО",
+    "ВЕРНУТЬ"
+   ]
+  },
+  "checked_sha": {
+   "type": "string"
+  },
+  "reviewer": {
+   "type": "string"
+  },
+  "tz_sha": {
+   "type": "string"
+  },
+  "stage": {
+   "type": "integer",
+   "minimum": 0
+  },
+  "remarks": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "tests": {
+   "type": "object",
+   "required": [
+    "passed",
+    "failed",
+    "skipped"
+   ],
+   "properties": {
+    "passed": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "failed": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "skipped": {
+     "type": "integer",
+     "minimum": 0
+    }
+   },
+   "additionalProperties": true
+  },
+  "mode": {
+   "enum": [
+    "A",
+    "B"
+   ]
+  }
+ },
+ "additionalProperties": true,
+ "$schema": "http://json-schema.org/draft-07/schema#",
+ "title": "gvk/review/1"
+}
