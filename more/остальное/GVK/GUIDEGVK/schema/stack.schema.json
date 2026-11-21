@@ -1,0 +1,116 @@
+{
+ "type": "object",
+ "required": [
+  "schema",
+  "language",
+  "version",
+  "packaging",
+  "runtime_cost",
+  "checklist",
+  "at",
+  "owner",
+  "protocol_ver"
+ ],
+ "properties": {
+  "schema": {
+   "const": "gvk/stack/1"
+  },
+  "schema_ver": {
+   "type": "string"
+  },
+  "language": {
+   "type": "string"
+  },
+  "version": {
+   "type": "string"
+  },
+  "packaging": {
+   "type": "string"
+  },
+  "runtime_included": {
+   "type": "boolean"
+  },
+  "runtime_cost": {
+   "enum": [
+    "none",
+    "free-step"
+   ]
+  },
+  "licenses": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "component",
+     "license"
+    ],
+    "properties": {
+     "component": {
+      "type": "string"
+     },
+     "license": {
+      "type": "string"
+     },
+     "risk": {
+      "type": "string"
+     }
+    },
+    "additionalProperties": true
+   }
+  },
+  "checklist": {
+   "type": "array",
+   "minItems": 6,
+   "items": {
+    "type": "object",
+    "required": [
+     "criterion",
+     "fact",
+     "status"
+    ],
+    "properties": {
+     "criterion": {
+      "type": "integer",
+      "minimum": 1
+     },
+     "fact": {
+      "type": "string"
+     },
+     "status": {
+      "enum": [
+       "pass",
+       "fail",
+       "untested"
+      ]
+     }
+    },
+    "additionalProperties": true
+   }
+  },
+  "blockers": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "decided_by": {
+   "type": "string"
+  },
+  "tz_ref": {
+   "type": "string"
+  },
+  "at": {
+   "type": "string",
+   "format": "date-time"
+  },
+  "owner": {
+   "type": "string"
+  },
+  "protocol_ver": {
+   "type": "string"
+  }
+ },
+ "additionalProperties": true,
+ "$schema": "http://json-schema.org/draft-07/schema#",
+ "title": "gvk/stack/1"
+}

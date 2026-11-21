@@ -1,0 +1,126 @@
+{
+ "type": "object",
+ "required": [
+  "schema",
+  "fragment",
+  "stage",
+  "tz_sha",
+  "owner",
+  "branch",
+  "last_green",
+  "status",
+  "tests",
+  "attempts",
+  "cycles",
+  "at"
+ ],
+ "properties": {
+  "schema": {
+   "type": "string"
+  },
+  "schema_ver": {
+   "type": "string"
+  },
+  "at": {
+   "type": "string",
+   "format": "date-time"
+  },
+  "owner": {
+   "type": "string"
+  },
+  "protocol_ver": {
+   "type": "string"
+  },
+  "fragment": {
+   "type": "string",
+   "pattern": "^[0-9]{3,4}$"
+  },
+  "stage": {
+   "type": "integer",
+   "minimum": 0
+  },
+  "tz_sha": {
+   "type": "string"
+  },
+  "role": {
+   "type": "string"
+  },
+  "branch": {
+   "type": "string"
+  },
+  "last_green": {
+   "type": "string"
+  },
+  "status": {
+   "enum": [
+    "ЗЕЛЕНО",
+    "КРАСНО"
+   ]
+  },
+  "tests": {
+   "type": "object",
+   "required": [
+    "passed",
+    "failed",
+    "skipped"
+   ],
+   "properties": {
+    "passed": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "failed": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "skipped": {
+     "type": "integer",
+     "minimum": 0
+    }
+   },
+   "additionalProperties": true
+  },
+  "attempts": {
+   "type": "integer",
+   "minimum": 0
+  },
+  "cycles": {
+   "type": "integer",
+   "minimum": 0
+  },
+  "remaining": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "change_id": {
+   "type": "string"
+  },
+  "blocked": {
+   "type": "boolean"
+  },
+  "blocked_reason": {
+   "type": "string"
+  },
+  "block_kind": {
+   "enum": [
+    "attempts_max",
+    "cycles_max",
+    "owner",
+    "dependency"
+   ]
+  },
+  "model": {
+   "type": "string"
+  }
+ },
+ "additionalProperties": true,
+ "$schema": "http://json-schema.org/draft-07/schema#",
+ "title": "gvk/report/1",
+ "dependentRequired": {
+  "blocked": [
+   "blocked_reason"
+  ]
+ }
+}

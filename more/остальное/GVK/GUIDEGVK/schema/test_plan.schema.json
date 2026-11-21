@@ -1,0 +1,160 @@
+{
+ "type": "object",
+ "required": [
+  "schema",
+  "stage",
+  "tz_sha",
+  "coverage",
+  "tasks",
+  "acceptance_gate",
+  "at",
+  "owner",
+  "protocol_ver"
+ ],
+ "properties": {
+  "schema": {
+   "type": "string"
+  },
+  "schema_ver": {
+   "type": "string"
+  },
+  "at": {
+   "type": "string",
+   "format": "date-time"
+  },
+  "owner": {
+   "type": "string"
+  },
+  "protocol_ver": {
+   "type": "string"
+  },
+  "stage": {
+   "type": "integer",
+   "minimum": 0
+  },
+  "tz_sha": {
+   "type": "string"
+  },
+  "coverage": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "requirement",
+     "tasks",
+     "covered"
+    ],
+    "properties": {
+     "requirement": {
+      "type": "string"
+     },
+     "tasks": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "covered": {
+      "type": "boolean"
+     },
+     "note": {
+      "type": "string"
+     }
+    },
+    "additionalProperties": true
+   }
+  },
+  "tasks": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "kind",
+     "level",
+     "env",
+     "severity"
+    ],
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "kind": {
+      "enum": [
+       "gui",
+       "uiux",
+       "logic",
+       "absurd",
+       "cli",
+       "load"
+      ]
+     },
+     "level": {
+      "type": "integer",
+      "minimum": 1
+     },
+     "env": {
+      "enum": [
+       "linux",
+       "windows-ci",
+       "manual"
+      ]
+     },
+     "severity": {
+      "enum": [
+       "блокер",
+       "важно",
+       "косметика"
+      ]
+     }
+    },
+    "additionalProperties": true
+   }
+  },
+  "acceptance_gate": {
+   "type": "object",
+   "required": [
+    "blockers_pass",
+    "coverage_complete",
+    "no_open_blockers"
+   ],
+   "properties": {
+    "blockers_pass": {
+     "type": "boolean"
+    },
+    "coverage_complete": {
+     "type": "boolean"
+    },
+    "no_open_blockers": {
+     "type": "boolean"
+    },
+    "note": {
+     "type": "string"
+    }
+   },
+   "additionalProperties": true
+  },
+  "uncovered": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "requirement",
+     "reason"
+    ],
+    "properties": {
+     "requirement": {
+      "type": "string"
+     },
+     "reason": {
+      "type": "string"
+     }
+    },
+    "additionalProperties": true
+   }
+  }
+ },
+ "additionalProperties": true,
+ "$schema": "http://json-schema.org/draft-07/schema#",
+ "title": "gvk/test_plan/1"
+}
